@@ -61,21 +61,21 @@ Bootstrap 5 HTML CSS Template
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="about.html">About Gotto</a>
+                            <a class="nav-link" href="about.php">About Gotto</a>
                         </li>
 
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="#" id="navbarLightDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">Pages</a>
 
                             <ul class="dropdown-menu dropdown-menu-light" aria-labelledby="navbarLightDropdownMenuLink">
-                                <li><a class="dropdown-item" href="job-listings.html">Job Listings</a></li>
+                                <li><a class="dropdown-item" href="job-listings.php">Job Listings</a></li>
 
-                                <li><a class="dropdown-item" href="job-details.html">Job Details</a></li>
+                                <li><a class="dropdown-item" href="job-details.php">Job Details</a></li>
                             </ul>
                         </li>
 
                         <li class="nav-item">
-                            <a class="nav-link" href="contact.html">Contact</a>
+                            <a class="nav-link" href="contact.php">Contact</a>
                         </li>
 
                         <li class="nav-item ms-lg-auto">
@@ -140,11 +140,11 @@ Bootstrap 5 HTML CSS Template
                                             <span class="text-white mb-lg-0 mb-md-0 me-2">Popular keywords:</span>
 
                                             <div>
-                                                <a href="job-listings.html" class="badge">Web design</a>
+                                                <a href="job-listings.php" class="badge">Web design</a>
 
-                                                <a href="job-listings.html" class="badge">Marketing</a>
+                                                <a href="job-listings.php" class="badge">Marketing</a>
 
-                                                <a href="job-listings.html" class="badge">Customer support</a>
+                                                <a href="job-listings.php" class="badge">Customer support</a>
                                             </div>
                                         </div>
                                     </div>
@@ -263,7 +263,7 @@ Bootstrap 5 HTML CSS Template
                                 <p class="text-white">Gotto Job is a free website template for job portals. This layout is based on Bootstrap 5 CSS framework. Thank you for visiting <a href="https://www.tooplate.com" target="_parent">Tooplate website</a>. Images are from <a href="https://www.freepik.com/" target="_blank">FreePik</a> website.</p>
 
                                 <div class="custom-border-btn-wrap d-flex align-items-center mt-5">
-                                    <a href="about.html" class="custom-btn custom-border-btn btn me-4">Get to know us</a>
+                                    <a href="about.php" class="custom-btn custom-border-btn btn me-4">Get to know us</a>
 
                                     <a href="#job-section" class="custom-link smoothscroll">Explore Jobs</a>
                                 </div>
@@ -307,7 +307,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="job-body d-flex flex-wrap flex-auto align-items-center ms-4">
                                     <div class="mb-3">
                                         <h4 class="job-title mb-lg-0">
-                                            <a href="job-details.html" class="job-title-link">Technical Lead</a>
+                                            <a href="job-details.php" class="job-title-link">Technical Lead</a>
                                         </h4>
 
                                         <div class="d-flex flex-wrap align-items-center">
@@ -328,18 +328,18 @@ Bootstrap 5 HTML CSS Template
 
                                             <div class="d-flex">
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge badge-level">Internship</a>
+                                                    <a href="job-listings.php" class="badge badge-level">Internship</a>
                                                 </p>
 
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge">Freelance</a>
+                                                    <a href="job-listings.php" class="badge">Freelance</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="job-section-btn-wrap">
-                                        <a href="job-details.html" class="custom-btn btn">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -352,7 +352,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="job-body d-flex flex-wrap flex-auto align-items-center ms-4">
                                     <div class="mb-3">
                                         <h4 class="job-title mb-lg-0">
-                                            <a href="job-details.html" class="job-title-link">Business Director</a>
+                                            <a href="job-details.php" class="job-title-link">Business Director</a>
                                         </h4>
 
                                         <div class="d-flex flex-wrap align-items-center">
@@ -373,18 +373,18 @@ Bootstrap 5 HTML CSS Template
 
                                             <div class="d-flex">
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge badge-level">Senior</a href="job-listings.html">
+                                                    <a href="job-listings.php" class="badge badge-level">Senior</a href="job-listings.html">
                                                 </p>
 
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge">Full Time</a>
+                                                    <a href="job-listings.php" class="badge">Full Time</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="job-section-btn-wrap">
-                                        <a href="job-details.html" class="custom-btn btn">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -397,7 +397,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="job-body d-flex flex-wrap flex-auto align-items-center ms-4">
                                     <div class="mb-3">
                                         <h4 class="job-title mb-lg-0">
-                                            <a href="job-details.html" class="job-title-link">HR Manager</a>
+                                            <a href="job-details.php" class="job-title-link">HR Manager</a>
                                         </h4>
 
                                         <div class="d-flex flex-wrap align-items-center">
@@ -418,18 +418,18 @@ Bootstrap 5 HTML CSS Template
 
                                             <div class="d-flex">
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge badge-level">Junior</a>
+                                                    <a href="job-listings.php" class="badge badge-level">Junior</a>
                                                 </p>
 
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge">Contract</a>
+                                                    <a href="job-listings.php" class="badge">Contract</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="job-section-btn-wrap">
-                                        <a href="job-details.html" class="custom-btn btn">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -442,7 +442,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="job-body d-flex flex-wrap flex-auto align-items-center ms-4">
                                     <div class="mb-3">
                                         <h4 class="job-title mb-lg-0">
-                                            <a href="job-details.html" class="job-title-link">Dev Ops</a>
+                                            <a href="job-details.php" class="job-title-link">Dev Ops</a>
                                         </h4>
 
                                         <div class="d-flex flex-wrap align-items-center">
@@ -463,18 +463,18 @@ Bootstrap 5 HTML CSS Template
 
                                             <div class="d-flex">
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge badge-level">Senior</a>
+                                                    <a href="job-listings.php" class="badge badge-level">Senior</a>
                                                 </p>
 
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge">Part Time</a>
+                                                    <a href="job-listings.php" class="badge">Part Time</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="job-section-btn-wrap">
-                                        <a href="job-details.html" class="custom-btn btn">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -487,7 +487,7 @@ Bootstrap 5 HTML CSS Template
                                 <div class="job-body d-flex flex-wrap flex-auto align-items-center ms-4">
                                     <div class="mb-3">
                                         <h4 class="job-title mb-lg-0">
-                                            <a href="job-details.html" class="job-title-link">UX Designer</a>
+                                            <a href="job-details.php" class="job-title-link">UX Designer</a>
                                         </h4>
 
                                         <div class="d-flex flex-wrap align-items-center">
@@ -508,18 +508,18 @@ Bootstrap 5 HTML CSS Template
 
                                             <div class="d-flex">
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge badge-level">Entry</a>
+                                                    <a href="job-listings.php" class="badge badge-level">Entry</a>
                                                 </p>
 
                                                 <p class="mb-0">
-                                                    <a href="job-listings.html" class="badge">Remote</a>
+                                                    <a href="job-listings.php" class="badge">Remote</a>
                                                 </p>
                                             </div>
                                         </div>
                                     </div>
 
                                     <div class="job-section-btn-wrap">
-                                        <a href="job-details.html" class="custom-btn btn">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -628,24 +628,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/it-professional-works-startup-project.jpg" class="job-image img-fluid" alt="">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Internship</a>
+                                            <a href="job-listings.php" class="badge badge-level">Internship</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Freelance</a>
+                                            <a href="job-listings.php" class="badge">Freelance</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">Technical Lead</a>
+                                        <a href="job-details.php" class="job-title-link">Technical Lead</a>
                                     </h4>
 
                                     <div class="d-flex align-items-center">
@@ -680,7 +680,7 @@ Bootstrap 5 HTML CSS Template
                                             $50k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -689,24 +689,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/marketing-assistant.jpg" class="job-image img-fluid" alt="marketing assistant">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Senior</a>
+                                            <a href="job-listings.php" class="badge badge-level">Senior</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Part Time</a>
+                                            <a href="job-listings.php" class="badge">Part Time</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">Marketing Assistant</a>
+                                        <a href="job-details.php" class="job-title-link">Marketing Assistant</a>
                                     </h4>
 
                                     <div class="d-flex align-items-center">
@@ -741,7 +741,7 @@ Bootstrap 5 HTML CSS Template
                                             $20k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -750,24 +750,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/coding-man.jpg" class="job-image img-fluid" alt="">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Junior</a>
+                                            <a href="job-listings.php" class="badge badge-level">Junior</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Contract</a>
+                                            <a href="job-listings.php" class="badge">Contract</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">Programmer</a>
+                                        <a href="job-details.php" class="job-title-link">Programmer</a>
                                     </h4>
                                         
                                     <div class="d-flex align-items-center">
@@ -802,7 +802,7 @@ Bootstrap 5 HTML CSS Template
                                             $68k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -811,24 +811,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/pretty-blogger-posing-cozy-apartment.jpg" class="job-image img-fluid" alt="">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Junior</a>
+                                            <a href="job-listings.php" class="badge badge-level">Junior</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Contract</a>
+                                            <a href="job-listings.php" class="badge">Contract</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">HR Manager</a>
+                                        <a href="job-details.php" class="job-title-link">HR Manager</a>
                                     </h4>
 
                                     <div class="d-flex align-items-center">
@@ -863,7 +863,7 @@ Bootstrap 5 HTML CSS Template
                                             $35k - 45k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -872,24 +872,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/paper-analysis.jpg" class="job-image img-fluid" alt="">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Junior</a>
+                                            <a href="job-listings.php" class="badge badge-level">Junior</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Contract</a>
+                                            <a href="job-listings.php" class="badge">Contract</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">Sales Representative</a>
+                                        <a href="job-details.php" class="job-title-link">Sales Representative</a>
                                     </h4>
                                         
                                     <div class="d-flex align-items-center">
@@ -924,7 +924,7 @@ Bootstrap 5 HTML CSS Template
                                             $20k - 35k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
@@ -933,24 +933,24 @@ Bootstrap 5 HTML CSS Template
                         <div class="col-lg-4 col-md-6 col-12">
                             <div class="job-thumb job-thumb-box">
                                 <div class="job-image-box-wrap">
-                                    <a href="job-details.html">
+                                    <a href="job-details.php">
                                         <img src="images/jobs/logo-designer-working-computer-desktop.jpg" class="job-image img-fluid" alt="">
                                     </a>
 
                                     <div class="job-image-box-wrap-info d-flex align-items-center">
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge badge-level">Mid Level</a>
+                                            <a href="job-listings.php" class="badge badge-level">Mid Level</a>
                                         </p>
 
                                         <p class="mb-0">
-                                            <a href="job-listings.html" class="badge">Full Time</a>
+                                            <a href="job-listings.php" class="badge">Full Time</a>
                                         </p>
                                     </div>
                                 </div>
 
                                 <div class="job-body">
                                     <h4 class="job-title">
-                                        <a href="job-details.html" class="job-title-link">Graphic Designer</a>
+                                        <a href="job-details.php" class="job-title-link">Graphic Designer</a>
                                     </h4>
                                         
                                     <div class="d-flex align-items-center">
@@ -985,14 +985,14 @@ Bootstrap 5 HTML CSS Template
                                             $20k
                                         </p>
 
-                                        <a href="job-details.html" class="custom-btn btn ms-auto">Apply now</a>
+                                        <a href="job-details.php" class="custom-btn btn ms-auto">Apply now</a>
                                     </div>
                                 </div>
                             </div>
                         </div>
 
                         <div class="col-lg-4 col-12 recent-jobs-bottom d-flex ms-auto my-4">
-                            <a href="job-listings.html" class="custom-btn btn ms-lg-auto">Browse Job Listings</a>
+                            <a href="job-listings.php" class="custom-btn btn ms-lg-auto">Browse Job Listings</a>
                         </div>
 
                     </div>
@@ -1177,141 +1177,12 @@ Bootstrap 5 HTML CSS Template
             </section>
         </main>
 
-        <footer class="site-footer">
-            <div class="container">
-                <div class="row">
-
-                    <div class="col-lg-4 col-md-6 col-12 mb-3">
-                        <div class="d-flex align-items-center mb-4">
-                            <img src="images/logo.png" class="img-fluid logo-image">
-
-                            <div class="d-flex flex-column">
-                                <strong class="logo-text">Gotto</strong>
-                                <small class="logo-slogan">Online Job Portal</small>
-                            </div>
-                        </div>  
-
-                        <p class="mb-2">
-                            <i class="custom-icon bi-globe me-1"></i>
-
-                            <a href="#" class="site-footer-link">
-                                www.jobbportal.com
-                            </a>
-                        </p>
-
-                        <p class="mb-2">
-                            <i class="custom-icon bi-telephone me-1"></i>
-
-                            <a href="tel: 305-240-9671" class="site-footer-link">
-                                305-240-9671
-                            </a>
-                        </p>
-
-                        <p>
-                            <i class="custom-icon bi-envelope me-1"></i>
-
-                            <a href="mailto:info@yourgmail.com" class="site-footer-link">
-                                info@jobportal.co
-                            </a>
-                        </p>
-
-                    </div>
-
-                    <div class="col-lg-2 col-md-3 col-6 ms-lg-auto">
-                        <h6 class="site-footer-title">Company</h6>
-
-                        <ul class="footer-menu">
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">About</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Blog</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Jobs</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-2 col-md-3 col-6">
-                        <h6 class="site-footer-title">Resources</h6>
-
-                        <ul class="footer-menu">
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Guide</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">How it works</a></li>
-
-                            <li class="footer-menu-item"><a href="#" class="footer-menu-link">Salary Tool</a></li>
-                        </ul>
-                    </div>
-
-                    <div class="col-lg-4 col-md-8 col-12 mt-3 mt-lg-0">
-                        <h6 class="site-footer-title">Newsletter</h6>
-
-                        <form class="custom-form newsletter-form" action="#" method="post" role="form">
-                            <h6 class="site-footer-title">Get notified jobs news</h6>
-
-                            <div class="input-group">
-                                <span class="input-group-text" id="basic-addon1"><i class="bi-person"></i></span>
-
-                                <input type="text" name="newsletter-name" id="newsletter-name" class="form-control" placeholder="yourname@gmail.com" required>
-
-                                <button type="submit" class="form-control">
-                                    <i class="bi-send"></i>
-                                </button>
-                            </div>
-                        </form>
-                    </div>
-
-                </div>
-            </div>
-
-            <div class="site-footer-bottom">
-                <div class="container">
-                    <div class="row">
-
-                        <div class="col-lg-4 col-12 d-flex align-items-center">
-                            <p class="copyright-text">Copyright © Gotto Job 2048</p>
-
-                            <ul class="footer-menu d-flex">
-                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Privacy Policy</a></li>
-
-                                <li class="footer-menu-item"><a href="#" class="footer-menu-link">Terms</a></li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-5 col-12 mt-2 mt-lg-0">
-                            <ul class="social-icon">
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-twitter"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-facebook"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-linkedin"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-instagram"></a>
-                                </li>
-
-                                <li class="social-icon-item">
-                                    <a href="#" class="social-icon-link bi-youtube"></a>
-                                </li>
-                            </ul>
-                        </div>
-
-                        <div class="col-lg-3 col-12 mt-2 d-flex align-items-center mt-lg-0">
-                            <p>Design: <a class="sponsored-link" rel="sponsored" href="https://www.tooplate.com" target="_blank">Tooplate</a></p>
-                        </div>
-
-                        <a class="back-top-icon bi-arrow-up smoothscroll d-flex justify-content-center align-items-center" href="#top"></a>
-
-                    </div>
-                </div>
-            </div>
-        </footer>
+        <?php
+        $file_path = "parts/footer.php";
+        if(!include_once($file_path)) {
+            echo"Failed to include $file_path";
+        }
+        ?>
 
         <!-- JAVASCRIPT FILES -->
         <script src="js/jquery.min.js"></script>
