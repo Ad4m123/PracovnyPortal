@@ -42,13 +42,13 @@
                 <h6 class="site-footer-title">Company</h6>
 
                 <ul class="footer-menu">
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">About</a></li>
+                    <li class="footer-menu-item"><a href="about.php" class="footer-menu-link">About</a></li>
 
                     <li class="footer-menu-item"><a href="#" class="footer-menu-link">Blog</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Jobs</a></li>
+                    <li class="footer-menu-item"><a href="job-listings.php" class="footer-menu-link">Jobs</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Contact</a></li>
+                    <li class="footer-menu-item"><a href="contact.php" class="footer-menu-link">Contact</a></li>
                 </ul>
             </div>
 

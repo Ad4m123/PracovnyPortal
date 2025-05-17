@@ -4,32 +4,17 @@
 
     <?php
     $activePage = 'contact';
+    $pageTitle = 'Contact us';
+    $breadcrumbs = [
+        ['title' => 'Home', 'link' => 'index.php', 'active' => false],
+        ['title' => 'Contact', 'link' => '', 'active' => true]
+    ];
     include_once('parts/nav.php');
     ?>
 
         <main>
 
-            <header class="site-header">
-                <div class="section-overlay"></div>
-
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col-lg-12 col-12 text-center">
-                            <h1 class="text-white">Get in touch</h1>
-
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-
-                                    <li class="breadcrumb-item active" aria-current="page">Contact</li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
+            <?php include_once "parts/header.php"; ?>
 
 
             <section class="contact-section section-padding">
