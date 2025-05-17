@@ -1,38 +1,32 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
+<?php
+// Kontrola, či sú nastavené potrebné premenné, inak použiť predvolené hodnoty
+$pageTitle = isset($pageTitle) ? $pageTitle : 'Stránka';
+$breadcrumbs = isset($breadcrumbs) ? $breadcrumbs : [
+    ['title' => 'Home', 'link' => 'index.php', 'active' => false],
+    ['title' => $pageTitle, 'link' => '', 'active' => true]
+];
+?>
 
-    <meta name="description" content="">
-    <meta name="author" content="">
+<header class="site-header">
+    <div class="section-overlay"></div>
 
-    <title>Gotto Online Job Portal</title>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-12 text-center">
+                <h1 class="text-white"><?= $pageTitle ?></h1>
 
-    <!-- CSS FILES -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-
-    <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
-
-    <link href="css/bootstrap.min.css" rel="stylesheet">
-
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
-
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
-
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
-
-    <link href="css/tooplate-gotto-job.css" rel="stylesheet">
-
-    <!--
-
-    Tooplate 2134 Gotto Job
-
-    https://www.tooplate.com/view/2134-gotto-job
-
-    Bootstrap 5 HTML CSS Template
-
-    -->
-</head>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <?php foreach ($breadcrumbs as $breadcrumb): ?>
+                            <?php if ($breadcrumb['active']): ?>
+                                <li class="breadcrumb-item active" aria-current="page"><?= $breadcrumb['title'] ?></li>
+                            <?php else: ?>
+                                <li class="breadcrumb-item"><a href="<?= $breadcrumb['link'] ?>"><?= $breadcrumb['title'] ?></a></li>
+                            <?php endif; ?>
+                        <?php endforeach; ?>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</header>

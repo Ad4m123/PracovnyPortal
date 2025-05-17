@@ -1,33 +1,18 @@
-<?php include_once "parts/header.php"?>
-
-<?php
-$activePage = 'jobs';
-include_once('parts/nav.php');
-?>
+<?php include_once "parts/head.php" ?>
+    <body id="top">
+        <?php
+        $activePage = 'jobs';
+        $pageTitle = 'Job Listings';
+        $breadcrumbs = [
+            ['title' => 'Home', 'link' => 'index.php', 'active' => false],
+            ['title' => 'Job Listings', 'link' => '', 'active' => true]
+        ];
+        include_once('parts/nav.php');
+        ?>
 
         <main>
+            <?php include_once('parts/header.php'); ?>
 
-            <header class="site-header">
-                <div class="section-overlay"></div>
-
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col-lg-12 col-12 text-center">
-                            <h1 class="text-white">Job Listings</h1>
-
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-
-                                    <li class="breadcrumb-item active" aria-current="page">Job listings</li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
 
             <section class="section-padding pb-0 d-flex justify-content-center align-items-center">
                 <div class="container">

@@ -1,10 +1,9 @@
 <?php
-global $pozdrav;
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
 require_once 'functions.php';
-
+global $pozdrav;
 // Logged in ?
 $isLoggedIn = isset($_SESSION['user_id']);
 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === 1;

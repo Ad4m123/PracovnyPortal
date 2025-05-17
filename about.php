@@ -1,9 +1,9 @@
-<?php include_once "parts/header.php"?>
+<?php include_once "parts/head.php" ?>
     
     <body class="about-page" id="top">
 
     <?php
-    $activePage = 'about'; // alebo 'home', 'about', 'contact', 'job-details'
+    $activePage = 'about';
     include_once('parts/nav.php');
     ?>
 
