@@ -1,35 +1,19 @@
-<?php include_once "parts/header.php"?>
+<?php include_once "parts/head.php" ?>
     
     <body id="top">
 
     <?php
-    $activePage = 'job-details'; // alebo 'home', 'about', 'contact', 'job-details'
+    $activePage = 'job-details';
+    $pageTitle = 'Job Details';
+    $breadcrumbs = [
+        ['title' => 'Home', 'link' => 'index.php', 'active' => false],
+        ['title' => 'Job Details', 'link' => '', 'active' => true]
+    ];
     include_once('parts/nav.php');
     ?>
 
         <main>
-
-            <header class="site-header">
-                <div class="section-overlay"></div>
-
-                <div class="container">
-                    <div class="row">
-                        
-                        <div class="col-lg-12 col-12 text-center">
-                            <h1 class="text-white">Job Details</h1>
-
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb justify-content-center">
-                                    <li class="breadcrumb-item"><a href="index.php">Home</a></li>
-
-                                    <li class="breadcrumb-item active" aria-current="page">Job Details</li>
-                                </ol>
-                            </nav>
-                        </div>
-
-                    </div>
-                </div>
-            </header>
+            <?php include_once "parts/header.php" ?>
 
 
             <section class="job-section section-padding pb-0">
@@ -389,13 +373,6 @@
             echo"Failed to include $file_path";
         }
         ?>
-
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/counter.js"></script>
-        <script src="js/custom.js"></script>
 
     </body>
 </html>

@@ -1,9 +1,9 @@
-<?php include_once "parts/header.php"?>
+<?php include_once "parts/head.php" ?>
     
     <body class="about-page" id="top">
 
     <?php
-    $activePage = 'about'; // alebo 'home', 'about', 'contact', 'job-details'
+    $activePage = 'about';
     include_once('parts/nav.php');
     ?>
 
@@ -308,12 +308,6 @@
         }
         ?>
 
-        <!-- JAVASCRIPT FILES -->
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/counter.js"></script>
-        <script src="js/custom.js"></script>
 
     </body>
 </html>
