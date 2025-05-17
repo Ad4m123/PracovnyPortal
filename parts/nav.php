@@ -1,12 +1,16 @@
 <?php
+global $pozdrav;
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
+require_once 'functions.php';
 
 // Logged in ?
 $isLoggedIn = isset($_SESSION['user_id']);
 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === 1;
 $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
+
+
 ?>
 
 <nav class="navbar navbar-expand-lg">
@@ -53,7 +57,7 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
                     <!--For logged in users -->
                     <li class="nav-item ms-lg-auto dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            Welcome, <?= htmlspecialchars($userName) ?>
+                            <?= $pozdrav ?>, <?= $userName ?>  <!-- Nahradit Welcome, aby sa menil pozdrav pocas dna -->
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
                             <li><a class="dropdown-item" href="liked.php">Liked</a></li>
