@@ -34,14 +34,8 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
                 <li class="nav-item">
                     <a class="nav-link <?= $activePage === 'about' ? 'active' : '' ?>" href="about.php">About Gotto</a>
                 </li>
-                <li class="nav-item dropdown">
-                    <a class="nav-link dropdown-toggle <?= in_array($activePage, ['jobs', 'job-details']) ? 'active' : '' ?>" href="#" data-bs-toggle="dropdown">
-                        Pages
-                    </a>
-                    <ul class="dropdown-menu dropdown-menu-light">
-                        <li><a class="dropdown-item <?= $activePage === 'jobs' ? 'active' : '' ?>" href="job-listings.php">Job Listings</a></li>
-                        <li><a class="dropdown-item <?= $activePage === 'job-details' ? 'active' : '' ?>" href="job-details.php">Job Details</a></li>
-                    </ul>
+                <li class="nav-item">
+                    <a class="nav-link <?= $activePage === 'job-listings' ? 'active' : '' ?>" href="job-listings.php">Job Listing</a>
                 </li>
                 
                 <?php if (!$isLoggedIn): ?>
@@ -56,7 +50,7 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
                     <!--For logged in users -->
                     <li class="nav-item ms-lg-auto dropdown">
                         <a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown">
-                            <?= $pozdrav ?>, <?= $userName ?>  <!-- Nahradit Welcome, aby sa menil pozdrav pocas dna -->
+                            <?= $pozdrav ?>, <?= $userName ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
                             <li><a class="dropdown-item" href="liked.php">Liked</a></li>
