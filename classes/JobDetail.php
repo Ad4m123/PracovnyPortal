@@ -1,5 +1,4 @@
 <?php
-// classes/JobDetail.php
 class JobDetail {
     private $db;
 

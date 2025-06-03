@@ -2,17 +2,18 @@
 include_once "parts/head.php";
 require_once "db/config.php";
 require_once "classes/Job.php";
+require_once "classes/Category.php";
 require_once "functions.php";
 
-// Create database connection
+
 $database = new Database();
 $db = $database->getConnection();
 
-// Initialize Job class
 $jobObj = new Job($db);
-
-// Get only 6 latest jobs for homepage
 $jobs = $jobObj->getAllJobs(6);
+
+$categoryObj = new Category($db);
+$categories = $categoryObj->getAllCategories();
 ?>
 
 <body id="top">
@@ -97,75 +98,21 @@ include_once('parts/nav.php');
                     <h2 class="mb-5">Browse by <span>Categories</span></h2>
                 </div>
 
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="categories-block">
-                        <a href="job-listings.php?job-title=Web+design" class="d-flex flex-column justify-content-center align-items-center h-100">
-                            <i class="categories-icon bi-window"></i>
+                <?php foreach ($categories as $category): ?>
+                    <div class="col-lg-2 col-md-4 col-6">
+                        <div class="categories-block">
+                            <a href="job-listings.php?category=<?php echo $category['idcategory']; ?>" class="d-flex flex-column justify-content-center align-items-center h-100">
+                                <i class="categories-icon <?php echo $categoryObj->getCategoryIcon($category['name']); ?>"></i>
 
-                            <small class="categories-block-title">Web design</small>
+                                <small class="categories-block-title"><?php echo htmlspecialchars($category['name']); ?></small>
 
-                            <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
-                                <span class="categories-block-number-text">320</span>
-                            </div>
-                        </a>
+                                <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
+                                    <span class="categories-block-number-text"><?php echo $category['job_count']; ?></span>
+                                </div>
+                            </a>
+                        </div>
                     </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="categories-block">
-                        <a href="job-listings.php?job-title=Marketing" class="d-flex flex-column justify-content-center align-items-center h-100">
-                            <i class="categories-icon bi-twitch"></i>
-
-                            <small class="categories-block-title">Marketing</small>
-
-                            <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
-                                <span class="categories-block-number-text">180</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="categories-block">
-                        <a href="job-listings.php?job-title=Video" class="d-flex flex-column justify-content-center align-items-center h-100">
-                            <i class="categories-icon bi-play-circle-fill"></i>
-
-                            <small class="categories-block-title">Video</small>
-
-                            <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
-                                <span class="categories-block-number-text">340</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="categories-block">
-                        <a href="job-listings.php?job-title=Websites" class="d-flex flex-column justify-content-center align-items-center h-100">
-                            <i class="categories-icon bi-globe"></i>
-
-                            <small class="categories-block-title">Websites</small>
-
-                            <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
-                                <span class="categories-block-number-text">140</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-
-                <div class="col-lg-2 col-md-4 col-6">
-                    <div class="categories-block">
-                        <a href="job-listings.php?job-title=Customer+Support" class="d-flex flex-column justify-content-center align-items-center h-100">
-                            <i class="categories-icon bi-people"></i>
-
-                            <small class="categories-block-title">Customer Support</small>
-
-                            <div class="categories-block-number d-flex flex-column justify-content-center align-items-center">
-                                <span class="categories-block-number-text">84</span>
-                            </div>
-                        </a>
-                    </div>
-                </div>
+                <?php endforeach; ?>
 
             </div>
         </div>
@@ -248,23 +195,7 @@ include_once('parts/nav.php');
 
                                             <p class="job-date mb-0">
                                                 <i class="custom-icon bi-clock me-1"></i>
-                                                <?php
-                                                $createdDate = new DateTime($job['created_at']);
-                                                $now = new DateTime();
-                                                $interval = $now->diff($createdDate);
-
-                                                if ($interval->y > 0) {
-                                                    echo $interval->y . ' year' . ($interval->y > 1 ? 's' : '') . ' ago';
-                                                } elseif ($interval->m > 0) {
-                                                    echo $interval->m . ' month' . ($interval->m > 1 ? 's' : '') . ' ago';
-                                                } elseif ($interval->d > 0) {
-                                                    echo $interval->d . ' day' . ($interval->d > 1 ? 's' : '') . ' ago';
-                                                } elseif ($interval->h > 0) {
-                                                    echo $interval->h . ' hour' . ($interval->h > 1 ? 's' : '') . ' ago';
-                                                } else {
-                                                    echo $interval->i . ' minute' . ($interval->i > 1 ? 's' : '') . ' ago';
-                                                }
-                                                ?>
+                                                <?php echo formatTimeAgo($job['created_at']); ?>
                                             </p>
 
                                             <p class="job-price mb-0">

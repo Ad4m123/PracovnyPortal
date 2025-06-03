@@ -25,7 +25,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
         $database = new Database();
         $db = $database->getConnection();
 
-        $query = "SELECT id, first_name, last_name, email, password, is_admin FROM user WHERE email = :email";
+        $query = "SELECT iduser, first_name, last_name, email, password, is_admin FROM user WHERE email = :email";
         $stmt = $db->prepare($query);
 
         $stmt->bindParam(':email', $email);
@@ -37,7 +37,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST"){
 
             if (password_verify($password, $user['password'])) {
                 // Password is correct, create session
-                $_SESSION['user_id'] = $user['id'];
+                $_SESSION['user_id'] = $user['iduser'];
                 $_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
                 $_SESSION['user_email'] = $user['email'];
                 $_SESSION['is_admin'] = $user['is_admin'];

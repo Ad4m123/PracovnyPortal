@@ -60,6 +60,15 @@ class Job {
         return $result['total'];
     }
 
+    public function countJobsByCategory($categoryId) {
+        $query = "SELECT COUNT(*) as total FROM job WHERE category_idcategory = :category_id AND is_active = 1";
+        $stmt = $this->db->prepare($query);
+        $stmt->bindParam(':category_id', $categoryId, PDO::PARAM_INT);
+        $stmt->execute();
+        $result = $stmt->fetch(PDO::FETCH_ASSOC);
+        return $result['total'];
+    }
+
     public function searchJobs($title = null, $location = null, $jobType = null, $level = null, $limit = null, $offset = 0) {
         $query = "SELECT j.*, c.name as company_name 
                  FROM job j 
