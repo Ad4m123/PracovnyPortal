@@ -26,7 +26,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $database = new Database();
         $db = $database->getConnection();
 
-        $check_query = "SELECT id FROM user WHERE email = :email";
+        $check_query = "SELECT iduser FROM user WHERE email = :email";
         $check_stmt = $db->prepare($check_query);
         $check_stmt->bindParam(':email', $email);
         $check_stmt->execute();

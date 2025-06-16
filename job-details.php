@@ -1,7 +1,9 @@
 <?php
+session_start();
 include_once "parts/head.php";
 require_once "db/config.php";
 require_once "classes/JobDetail.php";
+require_once "classes/SavedJob.php";
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
     header("Location: job-listings.php");
@@ -14,12 +16,19 @@ $database = new Database();
 $db = $database->getConnection();
 
 $jobDetailObj = new JobDetail($db);
+$savedJobObj = new SavedJob($db);
 
 $job = $jobDetailObj->getJobById($jobId);
 
 if (!$job) {
     header("Location: job-listings.php");
     exit;
+}
+
+// Check if job is saved (for logged in users)
+$isJobSaved = false;
+if (isset($_SESSION['user_id'])) {
+    $isJobSaved = $savedJobObj->isJobSaved($_SESSION['user_id'], $jobId);
 }
 
 $activePage = 'job-details';
@@ -59,8 +68,6 @@ include_once('parts/nav.php');
                                     <i class="custom-icon bi-cash me-1"></i>
                                     $<?php echo number_format($job['salary'], 0); ?>
                                 </p>
-
-
                             </div>
                         </div>
 
@@ -89,8 +96,22 @@ include_once('parts/nav.php');
 
                         <div class="d-flex justify-content-center flex-wrap mt-5 border-top pt-4 mb-4">
                             <a href="#" class="custom-btn btn mt-2">Apply now</a>
-                            <a href="#" class="custom-btn custom-border-btn btn mt-2 ms-lg-4 ms-3">Save this job</a>
 
+                            <?php if (isset($_SESSION['user_id'])): ?>
+                                <?php if ($isJobSaved): ?>
+                                    <a href="liked-jobs.php" class="custom-btn custom-border-btn btn mt-2 ms-lg-4 ms-3">
+                                        <i class="bi-heart-fill me-1"></i>Already Saved
+                                    </a>
+                                <?php else: ?>
+                                    <a href="db/save-job.php?job_id=<?php echo $jobId; ?>" class="custom-btn custom-border-btn btn mt-2 ms-lg-4 ms-3">
+                                        <i class="bi-heart me-1"></i>Save this job
+                                    </a>
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <a href="login.php" class="custom-btn custom-border-btn btn mt-2 ms-lg-4 ms-3">
+                                    <i class="bi-heart me-1"></i>Save this job
+                                </a>
+                            <?php endif; ?>
                         </div>
                     </div>
                 </div>
@@ -99,8 +120,16 @@ include_once('parts/nav.php');
                     <div class="job-thumb job-thumb-detail-box bg-white shadow-lg">
                         <div class="d-flex align-items-center">
                             <h5 class="mb-0"><?php echo htmlspecialchars($job['company_name']); ?></h5>
-                            <a href="#" class="bi-bookmark ms-auto me-2"></a>
-                            <a href="#" class="bi-heart"></a>
+
+                            <?php if (isset($_SESSION['user_id'])): ?>
+                                <?php if ($isJobSaved): ?>
+                                    <a href="liked-jobs.php" class="bi-heart-fill text-danger"></a>
+                                <?php else: ?>
+
+                                <?php endif; ?>
+                            <?php else: ?>
+                                <a href="login.php" class="bi-heart"></a>
+                            <?php endif; ?>
                         </div>
 
                         <h6 class="mt-3 mb-2">About the Company</h6>
