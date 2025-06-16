@@ -1,10 +1,15 @@
+<?php
+// Dynamické určenie základnej cesty
+$basePath = file_exists('js/jquery.min.js') ? '' : '../';
+?>
+
 <footer class="site-footer">
     <div class="container">
         <div class="row">
 
             <div class="col-lg-4 col-md-6 col-12 mb-3">
                 <div class="d-flex align-items-center mb-4">
-                    <img src="images/logo.png" class="img-fluid logo-image">
+                    <img src="<?= $basePath ?>images/logo.png" class="img-fluid logo-image">
 
                     <div class="d-flex flex-column">
                         <strong class="logo-text">Gotto</strong>
@@ -42,13 +47,11 @@
                 <h6 class="site-footer-title">Company</h6>
 
                 <ul class="footer-menu">
-                    <li class="footer-menu-item"><a href="about.php" class="footer-menu-link">About</a></li>
+                    <li class="footer-menu-item"><a href="<?= $basePath ?>about.php" class="footer-menu-link">About</a></li>
 
-                    <li class="footer-menu-item"><a href="#" class="footer-menu-link">Blog</a></li>
+                    <li class="footer-menu-item"><a href="<?= $basePath ?>job-listings.php" class="footer-menu-link">Jobs</a></li>
 
-                    <li class="footer-menu-item"><a href="job-listings.php" class="footer-menu-link">Jobs</a></li>
-
-                    <li class="footer-menu-item"><a href="contact.php" class="footer-menu-link">Contact</a></li>
+                    <li class="footer-menu-item"><a href="<?= $basePath ?>contact.php" class="footer-menu-link">Contact</a></li>
                 </ul>
             </div>
 
@@ -135,8 +138,8 @@
 </footer>
 
 <!-- JAVASCRIPT FILES -->
-<script src="js/jquery.min.js"></script>
-<script src="js/bootstrap.min.js"></script>
-<script src="js/owl.carousel.min.js"></script>
-<script src="js/counter.js"></script>
-<script src="js/custom.js"></script>
+<script src="<?= $basePath ?>js/jquery.min.js"></script>
+<script src="<?= $basePath ?>js/bootstrap.min.js"></script>
+<script src="<?= $basePath ?>js/owl.carousel.min.js"></script>
+<script src="<?= $basePath ?>js/counter.js"></script>
+<script src="<?= $basePath ?>js/custom.js"></script>

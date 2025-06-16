@@ -2,20 +2,25 @@
 if (session_status() === PHP_SESSION_NONE) {
     session_start();
 }
-require_once 'functions.php';
+
+// Dynamická cesta k functions.php
+$functionsPath = file_exists('functions.php') ? 'functions.php' : '../functions.php';
+require_once $functionsPath;
+
 global $pozdrav;
 // Logged in ?
 $isLoggedIn = isset($_SESSION['user_id']);
 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === 1;
 $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
 
-
+// Dynamické cesty pre linky
+$basePath = file_exists('index.php') ? '' : '../';
 ?>
 
 <nav class="navbar navbar-expand-lg">
     <div class="container">
-        <a class="navbar-brand d-flex align-items-center" href="index.php">
-            <img src="images/logo.png" class="img-fluid logo-image">
+        <a class="navbar-brand d-flex align-items-center" href="<?= $basePath ?>index.php">
+            <img src="<?= $basePath ?>images/logo.png" class="img-fluid logo-image">
             <div class="d-flex flex-column">
                 <strong class="logo-text">Gotto</strong>
                 <small class="logo-slogan">Online Job Portal</small>
@@ -29,22 +34,28 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
         <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav align-items-center ms-lg-5">
                 <li class="nav-item">
-                    <a class="nav-link <?= $activePage === 'home' ? 'active' : '' ?>" href="index.php">Homepage</a>
+                    <a class="nav-link <?= $activePage === 'home' ? 'active' : '' ?>" href="<?= $basePath ?>index.php">Homepage</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $activePage === 'about' ? 'active' : '' ?>" href="about.php">About Gotto</a>
+                    <a class="nav-link <?= $activePage === 'about' ? 'active' : '' ?>" href="<?= $basePath ?>about.php">About Gotto</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link <?= $activePage === 'job-listings' ? 'active' : '' ?>" href="job-listings.php">Job Listing</a>
+                    <a class="nav-link <?= $activePage === 'job-listings' ? 'active' : '' ?>" href="<?= $basePath ?>job-listings.php">Job Listing</a>
                 </li>
-                
+
+                <?php if ($isAdmin): ?>
+                    <li class="nav-item">
+                        <a class="nav-link <?= $activePage === 'admin' ? 'active' : '' ?>" href="<?= $basePath ?>edit-jobs.php">Admin Panel</a>
+                    </li>
+                <?php endif; ?>
+
                 <?php if (!$isLoggedIn): ?>
                     <!-- For users without account -->
                     <li class="nav-item ms-lg-auto">
-                        <a class="nav-link <?= $activePage === 'register' ? 'active' : '' ?>" href="register.php">Register</a>
+                        <a class="nav-link <?= $activePage === 'register' ? 'active' : '' ?>" href="<?= $basePath ?>register.php">Register</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link custom-btn btn <?= $activePage === 'login' ? 'active' : '' ?>" href="login.php">Login</a>
+                        <a class="nav-link custom-btn btn <?= $activePage === 'login' ? 'active' : '' ?>" href="<?= $basePath ?>login.php">Login</a>
                     </li>
                 <?php else: ?>
                     <!--For logged in users -->
@@ -53,8 +64,11 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
                             <?= $pozdrav ?>, <?= $userName ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item" href="liked-jobs.php">Liked</a></li>
-                            <li><a class="dropdown-item" href="logout.php">Logout</a></li>
+                            <li><a class="dropdown-item" href="<?= $basePath ?>liked-jobs.php">Liked Jobs</a></li>
+                            <?php if ($isAdmin): ?>
+                                <li><a class="dropdown-item" href="<?= $basePath ?>edit-jobs.php">Admin Panel</a></li>
+                            <?php endif; ?>
+                            <li><a class="dropdown-item" href="<?= $basePath ?>logout.php">Logout</a></li>
                         </ul>
                     </li>
                 <?php endif; ?>
