@@ -53,7 +53,7 @@ $userName = $isLoggedIn ? $_SESSION['user_name'] : '';
                             <?= $pozdrav ?>, <?= $userName ?>
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
-                            <li><a class="dropdown-item" href="liked.php">Liked</a></li>
+                            <li><a class="dropdown-item" href="liked-jobs.php">Liked</a></li>
                             <li><a class="dropdown-item" href="logout.php">Logout</a></li>
                         </ul>
                     </li>
