@@ -199,6 +199,54 @@ include_once('parts/nav.php');
                     </div>
                 <?php endif; ?>
 
+                <!-- Pagination -->
+                <?php if ($totalPages > 1): ?>
+                    <div class="col-12">
+                        <nav aria-label="Job listings pagination">
+                            <ul class="pagination justify-content-center">
+
+                                <!-- Previous Button -->
+                                <?php if ($page > 1): ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="<?php echo buildPaginationUrl($page - 1, $_GET); ?>" aria-label="Previous">
+                                            <span aria-hidden="true">&laquo;</span>
+                                        </a>
+                                    </li>
+                                <?php else: ?>
+                                    <li class="page-item disabled">
+                                    <span class="page-link" aria-label="Previous">
+                                        <span aria-hidden="true">&laquo;</span>
+                                    </span>
+                                    </li>
+                                <?php endif; ?>
+
+                                <!-- Page Numbers -->
+                                <?php for ($i = 1; $i <= $totalPages; $i++): ?>
+                                    <li class="page-item <?php echo ($i == $page) ? 'active' : ''; ?>">
+                                        <a class="page-link" href="<?php echo buildPaginationUrl($i, $_GET); ?>"><?php echo $i; ?></a>
+                                    </li>
+                                <?php endfor; ?>
+
+                                <!-- Next Button -->
+                                <?php if ($page < $totalPages): ?>
+                                    <li class="page-item">
+                                        <a class="page-link" href="<?php echo buildPaginationUrl($page + 1, $_GET); ?>" aria-label="Next">
+                                            <span aria-hidden="true">&raquo;</span>
+                                        </a>
+                                    </li>
+                                <?php else: ?>
+                                    <li class="page-item disabled">
+                                    <span class="page-link" aria-label="Next">
+                                        <span aria-hidden="true">&raquo;</span>
+                                    </span>
+                                    </li>
+                                <?php endif; ?>
+
+                            </ul>
+                        </nav>
+                    </div>
+                <?php endif; ?>
+
             </div>
         </div>
     </section>

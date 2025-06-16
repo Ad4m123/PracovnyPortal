@@ -33,3 +33,15 @@ function formatTimeAgo($datetime) {
         return $interval->i . ' minute' . ($interval->i > 1 ? 's' : '') . ' ago';
     }
 }
+
+
+function buildPaginationUrl($pageNum, $getParams) {
+    $params = $getParams;
+    $params['page'] = $pageNum;
+
+    $params = array_filter($params, function($value) {
+        return $value !== '' && $value !== null;
+    });
+
+    return 'job-listings.php?' . http_build_query($params);
+}
