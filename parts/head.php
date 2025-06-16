@@ -1,3 +1,7 @@
+<?php
+// Dynamické určenie základnej cesty
+$basePath = file_exists('css/bootstrap.min.css') ? '' : '../';
+?>
 <!doctype html>
 <html lang="en">
 <head>
@@ -16,15 +20,15 @@
 
     <link href="https://fonts.googleapis.com/css2?family=League+Spartan:wght@100;300;400;600;700&display=swap" rel="stylesheet">
 
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>css/bootstrap.min.css" rel="stylesheet">
 
-    <link href="css/bootstrap-icons.css" rel="stylesheet">
+    <link href="<?= $basePath ?>css/bootstrap-icons.css" rel="stylesheet">
 
-    <link href="css/owl.carousel.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>css/owl.carousel.min.css" rel="stylesheet">
 
-    <link href="css/owl.theme.default.min.css" rel="stylesheet">
+    <link href="<?= $basePath ?>css/owl.theme.default.min.css" rel="stylesheet">
 
-    <link href="css/tooplate-gotto-job.css" rel="stylesheet">
+    <link href="<?= $basePath ?>css/tooplate-gotto-job.css" rel="stylesheet">
 
     <!--
 
@@ -36,3 +40,4 @@
 
     -->
 </head>
+<body id="top">
