@@ -4,18 +4,15 @@ include_once "parts/head.php";
 require_once "db/config.php";
 require_once "classes/AdminReview.php";
 
-// Kontrola admin oprávnení
-if (!isset($_SESSION['user_id']) || $_SESSION['is_admin'] != 1) {
-    header("Location: index.php");
-    exit;
-}
-
 $database = new Database();
 $db = $database->getConnection();
 $adminReviewObj = new AdminReview($db);
 
+// Kontrola Admina
+$adminReviewObj->checkAdminPermission();
+
 // Process delete request first
-$adminReviewObj->processDeleteRequest();
+$adminReviewObj->processDeleteRequest('delete', 'edit-reviews.php');
 
 // Process messages
 $messageData = $adminReviewObj->processMessages();
@@ -70,6 +67,9 @@ require_once "functions.php";
                                         <td><?php echo $review['idrating']; ?></td>
                                         <td>
                                             <strong><?php echo htmlspecialchars($review['first_name'] . ' ' . $review['last_name']); ?></strong>
+                                            <?php if ($review['is_admin']): ?>
+                                                <br><span class="badge bg-warning">Admin</span>
+                                            <?php endif; ?>
                                         </td>
                                         <td>
                                             <div class="d-flex align-items-center">
@@ -82,8 +82,8 @@ require_once "functions.php";
                                         <td>
                                             <?php if (!empty($review['rating_text'])): ?>
                                                 <span title="<?php echo htmlspecialchars($review['rating_text']); ?>">
-                                                        <?php echo htmlspecialchars(truncateText($review['rating_text'], 60)); ?>
-                                                    </span>
+                                                    <?php echo htmlspecialchars(truncateText($review['rating_text'], 60)); ?>
+                                                </span>
                                             <?php else: ?>
                                                 <em class="text-muted">No review text</em>
                                             <?php endif; ?>

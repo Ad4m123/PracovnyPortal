@@ -1,10 +1,8 @@
 <?php
-class AdminJob {
-    private $db;
 
-    public function __construct($db) {
-        $this->db = $db;
-    }
+require_once "BaseAdmin.php";
+
+class AdminJob extends BaseAdmin {
 
     // Získať všetky pracovné ponuky (aktívne aj neaktívne)
     public function getAllJobsAdmin($limit = null, $offset = 0) {
@@ -31,8 +29,7 @@ class AdminJob {
 
     // Spočítať všetky pracovné ponuky
     public function countAllJobsAdmin() {
-        $query = "SELECT COUNT(*) as total FROM job";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT COUNT(*) as total FROM job");
         $stmt->execute();
         $result = $stmt->fetch(PDO::FETCH_ASSOC);
         return $result['total'];
@@ -44,112 +41,70 @@ class AdminJob {
                  FROM job j 
                  INNER JOIN company c ON j.company_idcompany = c.idcompany 
                  INNER JOIN category cat ON j.category_idcategory = cat.idcategory
-                 WHERE j.idjob = :job_id";
+                 WHERE j.idjob = ?";
 
         $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':job_id', $jobId, PDO::PARAM_INT);
-        $stmt->execute();
-
+        $stmt->execute([$jobId]);
         return $stmt->fetch(PDO::FETCH_ASSOC);
-    }
-
-    // Vytvoriť novú pracovnú ponuku
-    public function createJob($data) {
-        // Najprv vytvor alebo získaj company
-        $companyId = $this->getOrCreateCompany($data['company_name']);
-
-        $query = "INSERT INTO job (title, description, requirements, benefits, salary, level, job_type, city, country, company_idcompany, category_idcategory, is_active, created_at) 
-                 VALUES (:title, :description, :requirements, :benefits, :salary, :level, :job_type, :city, :country, :company_id, :category_id, :is_active, NOW())";
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->bindParam(':title', $data['title']);
-        $stmt->bindParam(':description', $data['description']);
-        $stmt->bindParam(':requirements', $data['requirements']);
-        $stmt->bindParam(':benefits', $data['benefits']);
-        $stmt->bindParam(':salary', $data['salary'], PDO::PARAM_INT);
-        $stmt->bindParam(':level', $data['level']);
-        $stmt->bindParam(':job_type', $data['job_type']);
-        $stmt->bindParam(':city', $data['city']);
-        $stmt->bindParam(':country', $data['country']);
-        $stmt->bindParam(':company_id', $companyId, PDO::PARAM_INT);
-        $stmt->bindParam(':category_id', $data['category_id'], PDO::PARAM_INT);
-        $stmt->bindParam(':is_active', $data['is_active'], PDO::PARAM_INT);
-
-        return $stmt->execute();
-    }
-
-    // Aktualizovať pracovnú ponuku
-    public function updateJob($jobId, $data) {
-        // Najprv vytvor alebo získaj company
-        $companyId = $this->getOrCreateCompany($data['company_name']);
-
-        $query = "UPDATE job SET 
-                 title = :title, 
-                 description = :description, 
-                 requirements = :requirements, 
-                 benefits = :benefits, 
-                 salary = :salary, 
-                 level = :level, 
-                 job_type = :job_type, 
-                 city = :city, 
-                 country = :country, 
-                 company_idcompany = :company_id, 
-                 category_idcategory = :category_id, 
-                 is_active = :is_active
-                 WHERE idjob = :job_id";
-
-        $stmt = $this->db->prepare($query);
-
-        $stmt->bindParam(':job_id', $jobId, PDO::PARAM_INT);
-        $stmt->bindParam(':title', $data['title']);
-        $stmt->bindParam(':description', $data['description']);
-        $stmt->bindParam(':requirements', $data['requirements']);
-        $stmt->bindParam(':benefits', $data['benefits']);
-        $stmt->bindParam(':salary', $data['salary'], PDO::PARAM_INT);
-        $stmt->bindParam(':level', $data['level']);
-        $stmt->bindParam(':job_type', $data['job_type']);
-        $stmt->bindParam(':city', $data['city']);
-        $stmt->bindParam(':country', $data['country']);
-        $stmt->bindParam(':company_id', $companyId, PDO::PARAM_INT);
-        $stmt->bindParam(':category_id', $data['category_id'], PDO::PARAM_INT);
-        $stmt->bindParam(':is_active', $data['is_active'], PDO::PARAM_INT);
-
-        return $stmt->execute();
-    }
-
-    // Deaktivovať pracovnú ponuku
-    public function deactivateJob($jobId) {
-        $query = "UPDATE job SET is_active = 0 WHERE idjob = :job_id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':job_id', $jobId, PDO::PARAM_INT);
-        return $stmt->execute();
-    }
-
-    // Aktivovať pracovnú ponuku
-    public function activateJob($jobId) {
-        $query = "UPDATE job SET is_active = 1 WHERE idjob = :job_id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':job_id', $jobId, PDO::PARAM_INT);
-        return $stmt->execute();
     }
 
     // Vymazať pracovnú ponuku
     public function deleteJob($jobId) {
-        $query = "DELETE FROM job WHERE idjob = :job_id";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':job_id', $jobId, PDO::PARAM_INT);
-        return $stmt->execute();
+        return $this->executeQuery("DELETE FROM job WHERE idjob = ?", [$jobId]);
     }
 
-    // Získať alebo vytvoriť spoločnosť podľa názvu
-    public function getOrCreateCompany($companyName) {
-        // Skús najprv nájsť existujúcu spoločnosť
-        $query = "SELECT idcompany FROM company WHERE name = :name LIMIT 1";
-        $stmt = $this->db->prepare($query);
-        $stmt->bindParam(':name', $companyName);
-        $stmt->execute();
+    // Aktivovať pracovnú ponuku
+    public function activateJob($jobId) {
+        return $this->executeQuery("UPDATE job SET is_active = 1 WHERE idjob = ?", [$jobId]);
+    }
 
+    // Deaktivovať pracovnú ponuku
+    public function deactivateJob($jobId) {
+        return $this->executeQuery("UPDATE job SET is_active = 0 WHERE idjob = ?", [$jobId]);
+    }
+
+    // Aktualizovať pracovnú ponuku
+    public function updateJob($jobId, $formData) {
+        $companyId = $this->findOrCreateCompany($formData['company_name']);
+        if (!$companyId) return false;
+
+        $query = "UPDATE job SET 
+                    title = ?, description = ?, requirements = ?, benefits = ?, 
+                    salary = ?, level = ?, job_type = ?, city = ?, country = ?, 
+                    company_idcompany = ?, category_idcategory = ?, is_active = ?
+                  WHERE idjob = ?";
+
+        return $this->executeQuery($query, [
+            $formData['title'], $formData['description'], $formData['requirements'],
+            $formData['benefits'], $formData['salary'], $formData['level'],
+            $formData['job_type'], $formData['city'], $formData['country'],
+            $companyId, $formData['category_id'], $formData['is_active'], $jobId
+        ]);
+    }
+
+    // Vytvoriť novú pracovnú ponuku
+    public function createJob($formData) {
+        $companyId = $this->findOrCreateCompany($formData['company_name']);
+        if (!$companyId) return false;
+
+        $query = "INSERT INTO job (title, description, requirements, benefits, salary, 
+                                   level, job_type, city, country, company_idcompany, 
+                                   category_idcategory, is_active, created_at) 
+                  VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NOW())";
+
+        return $this->executeQuery($query, [
+            $formData['title'], $formData['description'], $formData['requirements'],
+            $formData['benefits'], $formData['salary'], $formData['level'],
+            $formData['job_type'], $formData['city'], $formData['country'],
+            $companyId, $formData['category_id'], $formData['is_active']
+        ]);
+    }
+
+    // Nájsť alebo vytvoriť spoločnosť
+    private function findOrCreateCompany($companyName) {
+        // Try to find existing company
+        $stmt = $this->db->prepare("SELECT idcompany FROM company WHERE name = ? LIMIT 1");
+        $stmt->execute([$companyName]);
         $company = $stmt->fetch(PDO::FETCH_ASSOC);
 
         if ($company) {
@@ -157,31 +112,52 @@ class AdminJob {
         }
 
         // Ak spoločnosť neexistuje, vytvor novú
-        $insertQuery = "INSERT INTO company (name) VALUES (:name)";
-        $insertStmt = $this->db->prepare($insertQuery);
-        $insertStmt->bindParam(':name', $companyName);
-
-        if ($insertStmt->execute()) {
+        if ($this->executeQuery("INSERT INTO company (name) VALUES (?)", [$companyName])) {
             return $this->db->lastInsertId();
         }
 
-        return null;
+        return false;
     }
 
     // Získať všetky spoločnosti
     public function getAllCompanies() {
-        $query = "SELECT idcompany, name FROM company ORDER BY name";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT * FROM company ORDER BY name ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
     }
 
     // Získať všetky kategórie
     public function getAllCategories() {
-        $query = "SELECT idcategory, name FROM category ORDER BY name";
-        $stmt = $this->db->prepare($query);
+        $stmt = $this->db->prepare("SELECT * FROM category ORDER BY name ASC");
         $stmt->execute();
         return $stmt->fetchAll(PDO::FETCH_ASSOC);
+    }
+
+    protected function handleDelete($id) {
+        return $this->deleteJob($id);
+    }
+
+    protected function getDeleteSuccessMessage() {
+        return "Job was successfully deleted";
+    }
+
+    protected function getDeleteErrorMessage() {
+        return "Error deleting job";
+    }
+    protected function getItemForToggle($id) {
+        return $this->getJobByIdAdmin($id);
+    }
+
+    protected function executeToggleAction($id, $action) {
+        if ($action == 'activate') {
+            return $this->activateJob($id);
+        } else {
+            return $this->deactivateJob($id);
+        }
+    }
+
+    protected function getItemNameForMessage($item) {
+        return htmlspecialchars($item['title']);
     }
 }
 ?>

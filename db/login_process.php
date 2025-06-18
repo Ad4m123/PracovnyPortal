@@ -1,54 +1,35 @@
 <?php
-require_once "db/config.php";
+session_start();
+require_once "config.php";
+require_once "classes/AuthValidator.php";
+require_once "classes/AuthenticationHandler.php";
 
 $email = $password = "";
 $error_message = "";
 $success_message = "";
 
-session_start();
-
-if(isset($_SESSION['user_id'])) {
-    header("Location: index.php");
-    exit;
-}
-
-if ($_SERVER["REQUEST_METHOD"] == "POST"){
+if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $email = trim($_POST['email']);
     $password = $_POST['password'];
 
-    if (empty($email) || empty($password)) {
-        $error_message = "Email and password are required";
-    } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-        $error_message = "Invalid email format";
+    $database = new Database();
+    $db = $database->getConnection();
+
+    $authHandler = new AuthenticationHandler($db);
+    $result = $authHandler->handleLogin($email, $password);
+
+    if ($result['success']) {
+        $success_message = $result['message'];
+        if ($result['redirect']) {
+            header("Location: " . $result['redirect']);
+            exit;
+        }
     } else {
-
-        $database = new Database();
-        $db = $database->getConnection();
-
-        $query = "SELECT iduser, first_name, last_name, email, password, is_admin FROM user WHERE email = :email";
-        $stmt = $db->prepare($query);
-
-        $stmt->bindParam(':email', $email);
-
-        $stmt->execute();
-
-        if ($stmt->rowCount() > 0) {
-            $user = $stmt->fetch(PDO::FETCH_ASSOC);
-
-            if (password_verify($password, $user['password'])) {
-                // Password is correct, create session
-                $_SESSION['user_id'] = $user['iduser'];
-                $_SESSION['user_name'] = $user['first_name'] . ' ' . $user['last_name'];
-                $_SESSION['user_email'] = $user['email'];
-                $_SESSION['is_admin'] = $user['is_admin'];
-
-                header("Location: index.php");
-                exit;
-            } else {
-                $error_message = "Invalid email or password";
-            }
-        } else {
-            $error_message = "Invalid email or password";
+        $error_message = $result['message'];
+        if ($result['redirect']) {
+            header("Location: " . $result['redirect']);
+            exit;
         }
     }
 }
+?>

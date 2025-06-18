@@ -2,7 +2,7 @@
 session_start();
 include_once "parts/head.php";
 require_once "db/config.php";
-require_once "classes/JobDetail.php";
+require_once "classes/Job.php";
 require_once "classes/SavedJob.php";
 
 if (!isset($_GET['id']) || !is_numeric($_GET['id'])) {
@@ -15,10 +15,10 @@ $jobId = (int)$_GET['id'];
 $database = new Database();
 $db = $database->getConnection();
 
-$jobDetailObj = new JobDetail($db);
+$jobObj = new Job($db);
 $savedJobObj = new SavedJob($db);
 
-$job = $jobDetailObj->getJobById($jobId);
+$job = $jobObj->getJobById($jobId);
 
 if (!$job) {
     header("Location: job-listings.php");

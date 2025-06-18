@@ -3,6 +3,8 @@ session_start();
 include_once "parts/head.php";
 require_once "db/config.php";
 require_once "classes/Rating.php";
+require_once "classes/RatingValidator.php";
+require_once "classes/RatingHandler.php";
 
 // Check if user is logged in
 if (!isset($_SESSION['user_id'])) {
@@ -17,30 +19,17 @@ $ratingObj = new Rating($db);
 $message = '';
 $messageType = '';
 
-// Process form submission
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $userId = $_SESSION['user_id'];
     $stars = isset($_POST['stars']) ? (int)$_POST['stars'] : 0;
     $ratingText = isset($_POST['rating_text']) ? trim($_POST['rating_text']) : '';
 
-    // Validation
-    $errors = [];
-    if ($stars < 1 || $stars > 5) {
-        $errors[] = "Please select a rating between 1 and 5 stars";
-    }
+    $ratingHandler = new RatingHandler($ratingObj);
 
-    if (empty($errors)) {
-        if ($ratingObj->createRating($userId, $ratingText, $stars)) {
-            $message = "Thank you for your rating!";
-            $messageType = "success";
-        } else {
-            $message = "Error saving your rating. Please try again.";
-            $messageType = "danger";
-        }
-    } else {
-        $message = implode("<br>", $errors);
-        $messageType = "danger";
-    }
+    $result = $ratingHandler->handleRatingSubmission($userId, $stars, $ratingText);
+
+    $message = $result['message'];
+    $messageType = $result['messageType'];
 }
 ?>
 
