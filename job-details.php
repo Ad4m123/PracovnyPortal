@@ -95,7 +95,8 @@ include_once('parts/nav.php');
                         <?php endif; ?>
 
                         <div class="d-flex justify-content-center flex-wrap mt-5 border-top pt-4 mb-4">
-                            <a href="#" class="custom-btn btn mt-2">Apply now</a>
+                            <a href="mailto:<?php echo htmlspecialchars($job['company_email']); ?>?subject=Application for <?php echo urlencode($job['title']); ?>" class="custom-btn btn mt-2">Apply now</a>
+
 
                             <?php if (isset($_SESSION['user_id'])): ?>
                                 <?php if ($isJobSaved): ?>
@@ -165,25 +166,6 @@ include_once('parts/nav.php');
                                 </a>
                             </p>
                         <?php endif; ?>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="section-overlay"></div>
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-10">
-                    <h2 class="text-white mb-2">Interested in this job?</h2>
-                    <p class="text-white">Apply now to connect with <?php echo htmlspecialchars($job['company_name']); ?> for this position.</p>
-                </div>
-
-                <div class="col-lg-4 col-12 ms-auto">
-                    <div class="custom-border-btn-wrap d-flex align-items-center mt-lg-4 mt-2">
-                        <a href="#" class="custom-btn custom-border-btn btn me-4">Apply now</a>
-                        <a href="job-listings.php" class="custom-link">Back to listings</a>
                     </div>
                 </div>
             </div>

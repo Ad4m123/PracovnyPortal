@@ -19,7 +19,7 @@ include_once('parts/nav.php');
 ?>
 
 <main>
-    <?php include_once('parts/head.php')?>
+    <?php include_once('parts/header.php')?>
 
     <section class="section-padding">
         <div class="container">
@@ -60,26 +60,6 @@ include_once('parts/nav.php');
                             </div>
                         </div>
                     </form>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <section class="cta-section">
-        <div class="section-overlay"></div>
-
-        <div class="container">
-            <div class="row">
-                <div class="col-lg-6 col-10">
-                    <h2 class="text-white mb-2">Find your dream job today</h2>
-                    <p class="text-white">Login to access your job applications, saved jobs, and personalized job recommendations.</p>
-                </div>
-
-                <div class="col-lg-4 col-12 ms-auto">
-                    <div class="custom-border-btn-wrap d-flex align-items-center mt-lg-4 mt-2">
-                        <a href="register.php" class="custom-btn custom-border-btn btn me-4">Create Account</a>
-                        <a href="job-listings.php" class="custom-link">Browse Jobs</a>
-                    </div>
                 </div>
             </div>
         </div>
