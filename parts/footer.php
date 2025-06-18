@@ -52,6 +52,8 @@ $basePath = file_exists('js/jquery.min.js') ? '' : '../';
                     <li class="footer-menu-item"><a href="<?= $basePath ?>job-listings.php" class="footer-menu-link">Jobs</a></li>
 
                     <li class="footer-menu-item"><a href="<?= $basePath ?>contact.php" class="footer-menu-link">Contact</a></li>
+
+                    <li class="footer-menu-item"><a href="<?= $basePath ?>rating.php" class="footer-menu-link">Rate Us</a></li>
                 </ul>
             </div>
 

@@ -44,8 +44,21 @@ $basePath = file_exists('index.php') ? '' : '../';
                 </li>
 
                 <?php if ($isAdmin): ?>
-                    <li class="nav-item">
-                        <a class="nav-link <?= $activePage === 'admin' ? 'active' : '' ?>" href="<?= $basePath ?>edit-jobs.php">Admin Panel</a>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle <?= $activePage === 'admin' ? 'active' : '' ?>"
+                           href="#"
+                           data-bs-toggle="dropdown"
+                           aria-expanded="false">
+                            Admin Panel
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="<?= $basePath ?>edit-jobs.php">
+                                    Edit Jobs
+                                </a></li>
+                            <li><a class="dropdown-item" href="<?= $basePath ?>edit-reviews.php">
+                                    Edit Reviews
+                                </a></li>
+                        </ul>
                     </li>
                 <?php endif; ?>
 
@@ -65,9 +78,6 @@ $basePath = file_exists('index.php') ? '' : '../';
                         </a>
                         <ul class="dropdown-menu dropdown-menu-light">
                             <li><a class="dropdown-item" href="<?= $basePath ?>liked-jobs.php">Liked Jobs</a></li>
-                            <?php if ($isAdmin): ?>
-                                <li><a class="dropdown-item" href="<?= $basePath ?>edit-jobs.php">Admin Panel</a></li>
-                            <?php endif; ?>
                             <li><a class="dropdown-item" href="<?= $basePath ?>logout.php">Logout</a></li>
                         </ul>
                     </li>

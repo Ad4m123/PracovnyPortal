@@ -45,3 +45,24 @@ function buildPaginationUrl($pageNum, $getParams) {
 
     return 'job-listings.php?' . http_build_query($params);
 }
+
+// Function to generate stars
+function generateStars($rating) {
+    $stars = '';
+    for ($i = 1; $i <= 5; $i++) {
+        if ($i <= $rating) {
+            $stars .= '<i class="bi-star-fill"></i>';
+        } else {
+            $stars .= '<i class="bi-star"></i>';
+        }
+    }
+    return $stars;
+}
+
+// Function to truncate text
+function truncateText($text, $length = 100) {
+    if (strlen($text) <= $length) {
+        return $text;
+    }
+    return substr($text, 0, $length) . '...';
+}

@@ -1,0 +1,40 @@
+.rating-stars {
+    display: flex;
+    gap: 5px;
+    margin-bottom: 10px;
+}
+
+.rating-stars input[type="radio"] {
+    display: none;
+}
+
+.rating-stars label.star {
+    font-size: 2rem;
+    color: #ddd;
+    cursor: pointer;
+    transition: color 0.2s;
+}
+
+.rating-stars label.star:hover,
+.rating-stars input[type="radio"]:checked ~ label.star,
+.rating-stars input[type="radio"]:checked + label.star {
+    color: #ffc107;
+}
+
+.rating-stars input[type="radio"]:checked + label.star ~ label.star {
+    color: #ddd;
+}
+
+/* Highlight stars up to the hovered one */
+.rating-stars label.star:hover ~ label.star {
+    color: #ddd;
+}
+
+.rating-stars:hover label.star {
+    color: #ddd;
+}
+
+.rating-stars label.star:hover,
+.rating-stars label.star:hover ~ label.star {
+    color: #ffc107;
+}
