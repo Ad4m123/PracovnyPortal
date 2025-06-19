@@ -8,6 +8,10 @@ $functionsPath = file_exists('functions.php') ? 'functions.php' : '../functions.
 require_once $functionsPath;
 
 global $pozdrav;
+
+if (!isset($activePage)) {
+    $activePage = '';
+}
 // Logged in ?
 $isLoggedIn = isset($_SESSION['user_id']);
 $isAdmin = isset($_SESSION['is_admin']) && $_SESSION['is_admin'] === 1;
