@@ -16,7 +16,6 @@ $categoryObj = new Category($db);
 $categories = $categoryObj->getAllCategories();
 ?>
 
-<body id="top">
 
 <?php
 $activePage = 'home';

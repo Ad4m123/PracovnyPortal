@@ -32,7 +32,7 @@ include_once('parts/nav.php');
 require_once "functions.php";
 ?>
 
-<body id="top">
+
 <?php include_once "parts/header.php" ?>
 
 <main>

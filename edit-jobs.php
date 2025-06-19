@@ -35,7 +35,6 @@ $breadcrumbs = [
 include_once('parts/nav.php');
 ?>
 
-<body id="top">
 <?php include_once "parts/header.php" ?>
 
 <main>

@@ -15,7 +15,6 @@ $breadcrumbs = [
 include_once('parts/nav.php');
 ?>
 
-<body id="top">
 
 <?php
 $activePage = 'login';

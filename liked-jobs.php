@@ -20,7 +20,6 @@ $userId = $_SESSION['user_id'];
 $savedJobs = $savedJobObj->getUserSavedJobs($userId);
 ?>
 
-<body id="top">
 <?php
 $activePage = 'liked-jobs';
 $pageTitle = 'Liked Jobs';

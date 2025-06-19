@@ -1,9 +1,14 @@
 <?php
 include_once "parts/head.php";
 require_once "db/register_process.php";
+
+if (!isset($first_name)) $first_name = '';
+if (!isset($last_name)) $last_name = '';
+if (!isset($email)) $email = '';
+if (!isset($error_message)) $error_message = '';
+if (!isset($success_message)) $success_message = '';
 ?>
 
-<body id="top">
 
 <?php
 $activePage = 'register';

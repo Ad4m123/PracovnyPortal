@@ -46,7 +46,7 @@ if ($categoryId) {
 $totalPages = ceil($totalJobs / $itemsPerPage);
 ?>
 
-<body id="top">
+
 <?php
 $activePage = 'jobs';
 $pageTitle = $currentCategory ? $currentCategory['name'] . ' Jobs' : 'Job Listings';

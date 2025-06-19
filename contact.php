@@ -1,6 +1,5 @@
 <?php include_once "parts/head.php" ?>
-    
-    <body id="top">
+
 
     <?php
     $activePage = 'contact';
