@@ -1,5 +1,4 @@
 <?php
-// BONUS: Aktualizovaný BaseAdmin.php s executeQuery metódou
 class BaseAdmin {
     protected $db;
 
@@ -7,7 +6,7 @@ class BaseAdmin {
         $this->db = $db;
     }
 
-    // NOVÁ SPOLOČNÁ METÓDA
+
     protected function executeQuery($query, $params = []) {
         try {
             $stmt = $this->db->prepare($query);
@@ -17,7 +16,6 @@ class BaseAdmin {
         }
     }
 
-    // Všetky ostatné metódy zostávajú rovnaké...
     public function processMessages() {
         $result = ['message' => '', 'messageType' => ''];
 

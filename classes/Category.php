@@ -1,5 +1,4 @@
 <?php
-// classes/Category.php
 class Category {
     private $db;
 

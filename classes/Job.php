@@ -1,5 +1,5 @@
 <?php
-// classes/Job.php
+
 class Job {
     private $db;
 
