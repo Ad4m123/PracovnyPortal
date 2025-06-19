@@ -2,6 +2,10 @@
 include_once "parts/head.php";
 require_once "db/login_process.php";
 
+if (!isset($email)) $email = '';
+if (!isset($error_message)) $error_message = '';
+if (!isset($success_message)) $success_message = '';
+
 $activePage = 'login';
 $pageTitle = 'Login';
 $breadcrumbs = [
